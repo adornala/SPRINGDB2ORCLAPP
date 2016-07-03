@@ -1,14 +1,13 @@
 package home.Springboot.jpa;
 
-import java.util.List;
-
+import home.Springboot.jpa.domain.Clnt;
+import home.Springboot.jpa.repository.ClntRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import home.Springboot.jpa.domain.Clnt;
-import home.Springboot.jpa.repository.ClntRepository;
+import java.util.List;
 
 @SpringBootApplication
 public class Db2Jpa1Application {

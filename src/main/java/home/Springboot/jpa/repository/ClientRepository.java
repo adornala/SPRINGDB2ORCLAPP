@@ -1,11 +1,11 @@
+/*
 package home.Springboot.jpa.repository;
+
+import home.Springboot.jpa.domain.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import home.Springboot.jpa.domain.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Integer>{
 	//Collection<Client> findBySystemclientId(Long id);
@@ -14,3 +14,4 @@ public interface ClientRepository extends JpaRepository<Client, Integer>{
 	Collection<Client> findBySystemclientid(Integer id);
 	Client findOneBySystemclientid(Integer id);
 }
+*/

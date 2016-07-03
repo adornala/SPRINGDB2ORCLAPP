@@ -1,14 +1,17 @@
+/*
 package home.Springboot.jpa.domain;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
+*/
 /**
  * The persistent class for the CLNT database table.
  * 
- */
+ *//*
+
 @Entity
 @NamedQuery(name="Client.findAll", query="SELECT c FROM Client c")
 @Table(name="CLNT")
@@ -165,4 +168,4 @@ public class Client implements Serializable {
 	}
 	
 	
-}
+}*/
