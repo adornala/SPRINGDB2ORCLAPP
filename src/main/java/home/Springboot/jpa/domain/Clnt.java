@@ -7,152 +7,186 @@ import java.util.Date;
 
 /**
  * The persistent class for the CLNT database table.
- * 
+ *
  */
 @Entity
-@NamedQuery(name="Clnt.findAll", query="SELECT c FROM Clnt c")
+@Table(name="CLNT")
 public class Clnt implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long systemclientid;
+    @Id
+    @Column(unique=true, nullable=false, precision=19)
+    private long systemclientid;
 
-	private String accoununum;
+    @Column(length=255)
+    private String accoununum;
 
-	private String companyname;
+    @Column(length=255)
+    private String companyname;
 
-	private String id;
+    @Column(length=255)
+    private String id;
 
-	private String itin;
+    @Column(length=255)
+    private String itin;
 
-	private String lastupdatedby;
+    @Column(length=255)
+    private String lastupdatedby;
 
-	@Temporal(TemporalType.DATE)
-	private Date lastupdatedts;
+    @Temporal(TemporalType.DATE)
+    private Date lastupdatedts;
 
-	private String plannum;
+    @Column(length=255)
+    private String plannum;
 
-	@Temporal(TemporalType.DATE)
-	private Date setupts;
+    @Temporal(TemporalType.DATE)
+    private Date setupts;
 
-	private String status;
+    @Column(length=255)
+    private String status;
 
-	private String timezone;
+    @Column(precision=19)
+    private java.math.BigDecimal systemclient;
 
-	@Temporal(TemporalType.DATE)
-	private Date updatedts;
+    @Column(length=255)
+    private String timezone;
 
-	//bi-directional one-to-one association to ClntIdentification
-	@OneToOne
-	@JoinColumn(name="SYSTEMCLIENTID")
-	private ClntIdentification clntIdentification;
+    @Temporal(TemporalType.DATE)
+    private Date updatedts;
 
-	public Clnt() {
-	}
+    //bi-directional one-to-one association to ClntIdentification
+    @OneToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="SYSTEMCLIENTID", nullable=false, insertable=false, updatable=false)
+    private ClntIdentification clntIdentification;
 
-	public long getSystemclientid() {
-		return this.systemclientid;
-	}
+    public Clnt() {
+    }
 
-	public void setSystemclientid(long systemclientid) {
-		this.systemclientid = systemclientid;
-	}
+    public long getSystemclientid() {
+        return this.systemclientid;
+    }
 
-	public String getAccoununum() {
-		return this.accoununum;
-	}
+    public void setSystemclientid(long systemclientid) {
+        this.systemclientid = systemclientid;
+    }
 
-	public void setAccoununum(String accoununum) {
-		this.accoununum = accoununum;
-	}
+    public String getAccoununum() {
+        return this.accoununum;
+    }
 
-	public String getCompanyname() {
-		return this.companyname;
-	}
+    public void setAccoununum(String accoununum) {
+        this.accoununum = accoununum;
+    }
 
-	public void setCompanyname(String companyname) {
-		this.companyname = companyname;
-	}
+    public String getCompanyname() {
+        return this.companyname;
+    }
 
-	public String getId() {
-		return this.id;
-	}
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return this.id;
+    }
 
-	public String getItin() {
-		return this.itin;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setItin(String itin) {
-		this.itin = itin;
-	}
+    public String getItin() {
+        return this.itin;
+    }
 
-	public String getLastupdatedby() {
-		return this.lastupdatedby;
-	}
+    public void setItin(String itin) {
+        this.itin = itin;
+    }
 
-	public void setLastupdatedby(String lastupdatedby) {
-		this.lastupdatedby = lastupdatedby;
-	}
+    public String getLastupdatedby() {
+        return this.lastupdatedby;
+    }
 
-	public Date getLastupdatedts() {
-		return this.lastupdatedts;
-	}
+    public void setLastupdatedby(String lastupdatedby) {
+        this.lastupdatedby = lastupdatedby;
+    }
 
-	public void setLastupdatedts(Date lastupdatedts) {
-		this.lastupdatedts = lastupdatedts;
-	}
+    public Date getLastupdatedts() {
+        return this.lastupdatedts;
+    }
 
-	public String getPlannum() {
-		return this.plannum;
-	}
+    public void setLastupdatedts(Date lastupdatedts) {
+        this.lastupdatedts = lastupdatedts;
+    }
 
-	public void setPlannum(String plannum) {
-		this.plannum = plannum;
-	}
+    public String getPlannum() {
+        return this.plannum;
+    }
 
-	public Date getSetupts() {
-		return this.setupts;
-	}
+    public void setPlannum(String plannum) {
+        this.plannum = plannum;
+    }
 
-	public void setSetupts(Date setupts) {
-		this.setupts = setupts;
-	}
+    public Date getSetupts() {
+        return this.setupts;
+    }
 
-	public String getStatus() {
-		return this.status;
-	}
+    public void setSetupts(Date setupts) {
+        this.setupts = setupts;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return this.status;
+    }
 
-	public String getTimezone() {
-		return this.timezone;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setTimezone(String timezone) {
-		this.timezone = timezone;
-	}
+    public java.math.BigDecimal getSystemclient() {
+        return this.systemclient;
+    }
 
-	public Date getUpdatedts() {
-		return this.updatedts;
-	}
+    public void setSystemclient(java.math.BigDecimal systemclient) {
+        this.systemclient = systemclient;
+    }
 
-	public void setUpdatedts(Date updatedts) {
-		this.updatedts = updatedts;
-	}
+    public String getTimezone() {
+        return this.timezone;
+    }
 
-	public ClntIdentification getClntIdentification() {
-		return this.clntIdentification;
-	}
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
 
-	public void setClntIdentification(ClntIdentification clntIdentification) {
-		this.clntIdentification = clntIdentification;
-	}
+    public Date getUpdatedts() {
+        return this.updatedts;
+    }
 
+    public void setUpdatedts(Date updatedts) {
+        this.updatedts = updatedts;
+    }
+
+    public ClntIdentification getClntIdentification() {
+        return clntIdentification;
+    }
+
+    @Override
+    public String toString() {
+        return "Clnt{" +
+                "systemclientid=" + systemclientid +
+                ", accoununum='" + accoununum + '\'' +
+                ", companyname='" + companyname + '\'' +
+                ", id='" + id + '\'' +
+                ", itin='" + itin + '\'' +
+                ", lastupdatedby='" + lastupdatedby + '\'' +
+                ", lastupdatedts=" + lastupdatedts +
+                ", plannum='" + plannum + '\'' +
+                ", setupts=" + setupts +
+                ", status='" + status + '\'' +
+                ", systemclient=" + systemclient +
+                ", timezone='" + timezone + '\'' +
+                ", updatedts=" + updatedts +
+                ", clntIdentification=" + clntIdentification +
+                '}';
+    }
 }

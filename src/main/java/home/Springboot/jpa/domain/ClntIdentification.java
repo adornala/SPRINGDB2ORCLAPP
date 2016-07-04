@@ -1,26 +1,29 @@
 package home.Springboot.jpa.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 
 /**
  * The persistent class for the CLNT_IDENTIFICATION database table.
- * 
+ *
  */
 @Entity
 @Table(name="CLNT_IDENTIFICATION")
-@NamedQuery(name="ClntIdentification.findAll", query="SELECT c FROM ClntIdentification c")
 public class ClntIdentification implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false, precision=19)
 	private long systemclient;
 
+	@Column(length=255)
 	private String cif;
 
 	//bi-directional one-to-one association to Clnt
+	@JsonIgnore
 	@OneToOne(mappedBy="clntIdentification")
 	private Clnt clnt;
 
@@ -51,4 +54,12 @@ public class ClntIdentification implements Serializable {
 		this.clnt = clnt;
 	}
 
+    @Override
+    public String toString() {
+        return "ClntIdentification{" +
+                "systemclient=" + systemclient +
+                ", cif='" + cif + '\'' +
+                ", clnt=" + clnt +
+                '}';
+    }
 }
